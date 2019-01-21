@@ -214,6 +214,7 @@ public static void displayGame(String[][] gameBoard)
 
                if ((wincheck.equals("xxx"))) {
 
+                   displayGame(gameBoard);
                    result=p+" Wins the Game!";
 
                    //System.exit(0);
@@ -222,8 +223,8 @@ public static void displayGame(String[][] gameBoard)
 
                else if((wincheck.equals("ooo"))) {
 
+                   displayGame(gameBoard);
                    result=q+" Wins the Game!";
-
                    //System.exit(0);
 
 
