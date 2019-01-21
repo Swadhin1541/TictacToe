@@ -245,6 +245,9 @@ public static void displayGame(String[][] gameBoard)
 
 
     Scanner s=new Scanner(System.in);
+    boolean z=true;
+    while(z==true)
+    {
     System.out.println("Enter Player-1 name");
     String p=s.next();
     System.out.println("Enter Player-2 name");
@@ -311,12 +314,24 @@ int turnCount;
          String out="";
 
          out = checkWinner(gameBoard,p,q);
-
          System.out.println(out);
+        
 
          if(out!="") {
+            System.out.println("Want to play one more game(y/n)");
+            String m=s.next();
+            if(m.equals("y"))
+            {
+                z=true;
+                break;
+            }
+            else
+            {
+               z=false;
+               System.exit(0);
+            }
 
-             System.exit(0);
+             
 
          }
 
@@ -331,8 +346,17 @@ int turnCount;
      }
 
     displayGame(gameBoard);
-
+    /* System.out.println("Want to play one more game(y/n)");
+     String m=s.next();
+     if(m.equals("y"))
+     {
+         z=true;
+     }
+     else
+     {
+        z=false;
+     }*/
     }
 
-    
+    }
     }
