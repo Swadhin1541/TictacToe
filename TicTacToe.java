@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class TicTacToe {
 
@@ -150,7 +150,7 @@ public static void displayGame(String[][] gameBoard)
 
     }
 
-    public static String checkWinner(String [][] gameboard,String p,String q) {
+    public static String checkWinner(String [][] gameboard,String p,String q,String b,String c) {
 
          String result="";
 
@@ -215,8 +215,14 @@ public static void displayGame(String[][] gameBoard)
                if ((wincheck.equals("xxx"))) {
 
                    displayGame(gameboard);
-                   result=p+" Wins the Game!";
-
+                   if(b=="x")
+                   {
+                        result=p+" Wins the Game!";
+                   }
+                   else
+                   {
+                        result=q+" Wins the Game!";
+                   }
                    //System.exit(0);
 
                }
@@ -224,7 +230,14 @@ public static void displayGame(String[][] gameBoard)
                else if((wincheck.equals("ooo"))) {
 
                    displayGame(gameboard);
-                   result=q+" Wins the Game!";
+                   if(b=="o")
+                   {
+                        result=p+" Wins the Game!";
+                   }
+                   else
+                   {
+                        result=q+" Wins the Game!";
+                   }
                    //System.exit(0);
 
 
@@ -245,14 +258,42 @@ public static void displayGame(String[][] gameBoard)
 
 
     Scanner s=new Scanner(System.in);
-    System.out.println("RULES-\n1.2 Player Game.\n2.Any 1 Row with same 'x' or 'o' wins the game\n3.Any 1 column with same 'x' or 'o' wins the game\n4.Any 1 diagonal with same 'x' or 'o' wins the game\n");
+    System.out.println("RULES-\n1.2 Player Game.\n2.Any 1 Row,Column,Diagonal with same 'x' or 'o' wins the game\n3.Enter your mark('x' or 'o') in empty place\n4.When asked enter 'y' to start a newgame.\n5.When asked enter 'n' to exit.\n");
     boolean z=true;
     while(z==true)
     {
+    String b="",c="";
     System.out.println("Enter Player-1 name");
     String p=s.next();
     System.out.println("Enter Player-2 name");
     String q=s.next();
+    if (Math.random() < 0.5)
+    {
+        System.out.println(p+" will choose the character ('x' or 'o')");
+        b=s.next();
+        if(b.equals("x"))
+        {
+            c="o";
+        }
+        else 
+        {
+            c="x";
+        }
+
+    }
+    else
+    {
+        System.out.println(q +"will choose the character ('x' or 'o')");
+        c=s.next();
+        if(c.equals("x"))
+        {
+            b="o";
+        }
+        else 
+        {
+            b="x";
+        }
+    }
 
     String[][] gameBoard={{"1","2","3"},{"4","5","6"},{"7","8","9"}};
 
@@ -288,7 +329,7 @@ int turnCount;
 
        {
 
-       gameBoard[coordinates[0]][coordinates[1]]=((flag)?"x":"o");
+       gameBoard[coordinates[0]][coordinates[1]]=((flag)?b:c);
 
        }
 
@@ -314,12 +355,13 @@ int turnCount;
 
          String out="";
 
-         out = checkWinner(gameBoard,p,q);
+         out = checkWinner(gameBoard,p,q,b,c);
          System.out.println(out);
         
 
          if(out!="") {
-            System.out.println("Want to play one more game(y/n)");
+            System.out.println("Want to play one more game(click 'y')");
+            System.out.println("Want to Quit (click 'n')");
             String m=s.next();
             if(m.equals("y"))
             {
