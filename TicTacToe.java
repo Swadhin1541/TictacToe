@@ -271,13 +271,21 @@ public static void displayGame(String[][] gameBoard)
     {
         System.out.println(p+" will choose the character ('x' or 'o')");
         b=s.next();
-        if(b.equals("x"))
+        if(b.equals("x") || b.equals("o"))
         {
-            c="o";
+            if(b.equals("x"))
+            {
+                c="o";
+            }
+            else 
+            {
+                c="x";
+            }
         }
-        else 
+        else
         {
-            c="x";
+            System.out.println("Invalid input");
+            break;
         }
 
     }
@@ -285,14 +293,23 @@ public static void displayGame(String[][] gameBoard)
     {
         System.out.println(q +"will choose the character ('x' or 'o')");
         c=s.next();
-        if(c.equals("x"))
+        if(c.equals("x") || c.equals("o"))
         {
-            b="o";
+            if(c.equals("x"))
+            {
+                b="o";
+            }
+            else 
+            {
+                b="x";
+            }
         }
-        else 
+        else
         {
-            b="x";
+            System.out.println("Invalid input");
+            break;
         }
+
     }
 
     String[][] gameBoard={{"1","2","3"},{"4","5","6"},{"7","8","9"}};
