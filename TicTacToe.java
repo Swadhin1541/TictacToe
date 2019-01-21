@@ -150,7 +150,7 @@ public static void displayGame(String[][] gameBoard)
 
     }
 
-    public static String checkWinner(String [][] gameboard) {
+    public static String checkWinner(String [][] gameboard,String p,String q) {
 
          String result="";
 
@@ -214,7 +214,7 @@ public static void displayGame(String[][] gameBoard)
 
                if ((wincheck.equals("xxx"))) {
 
-                   result="Player 1 Wins the Game!";
+                   result=p+" Wins the Game!";
 
                    //System.exit(0);
 
@@ -222,7 +222,7 @@ public static void displayGame(String[][] gameBoard)
 
                else if((wincheck.equals("ooo"))) {
 
-                   result="Player 2 Wins the Game!";
+                   result=q+" Wins the Game!";
 
                    //System.exit(0);
 
@@ -244,8 +244,10 @@ public static void displayGame(String[][] gameBoard)
 
 
     Scanner s=new Scanner(System.in);
-
-
+    System.out.println("Enter Player-1 name");
+    String p=s.next();
+    System.out.println("Enter Player-2 name");
+    String q=s.next();
 
     String[][] gameBoard={{"1","2","3"},{"4","5","6"},{"7","8","9"}};
 
@@ -265,7 +267,7 @@ int turnCount;
 
 
 
-      System.out.println("Player "+((flag)?"1":"2")+"'s turn");
+      System.out.println(((flag)?p:q)+"'s turn");
 
 
 
@@ -307,7 +309,7 @@ int turnCount;
 
          String out="";
 
-         out = checkWinner(gameBoard);
+         out = checkWinner(gameBoard,p,q);
 
          System.out.println(out);
 
