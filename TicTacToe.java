@@ -245,6 +245,7 @@ public static void displayGame(String[][] gameBoard)
 
 
     Scanner s=new Scanner(System.in);
+    System.out.println("RULES-\n1.2 Player Game.\n2.Any 1 Row with same 'x' or 'o' wins the game\n3.Any 1 column with same 'x' or 'o' wins the game\n4.Any 1 diagonal with same 'x' or 'o' wins the game\n");
     boolean z=true;
     while(z==true)
     {
